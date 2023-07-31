@@ -111,14 +111,14 @@ type NamesOnly = NonNullable<AllPossibleGrades>
     home.resident.age++;
   }
    
-  function evict(home: Home) {
-    // But we can't write to the 'resident' property itself on a 'Home'.
-    home.resident = {
-  Cannot assign to 'resident' because it is a read-only property.
-      name: "Victor the Evictor",
-      age: 42,
-    };
-  }
+  // function evict(home: Home) {
+  //   // But we can't write to the 'resident' property itself on a 'Home'.
+  //   home.resident = {
+  // Cannot assign to 'resident' because it is a read-only property.
+  //     name: "Victor the Evictor",
+  //     age: 42,
+  //   };
+  // }
 
   interface Person {
     name: string;
@@ -146,7 +146,7 @@ type NamesOnly = NonNullable<AllPossibleGrades>
     [index: number]: string;
   }
    
-  const myArray: StringArray = getStringArray();
-  const secondItem = myArray[1];
+  // const myArray: StringArray = getStringArray();
+  // const secondItem = myArray[1];
             
   
