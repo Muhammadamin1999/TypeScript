@@ -129,6 +129,88 @@ type ColorfulCircles = Colorful & Circle;
 
 
 
+// interface Box {
+//     contents: unknown;
+// }
+// let x: Box = {
+//     contents: "hello",
+// }
+
+// if(typeof x.contents === "string"){
+//     console.log(x.contents.toUpperCase())
+// }
+
+interface Box<Type>{
+    contents: Type;
+}
+interface StringBox{
+    contents: string;
+}
+let boxA: Box<string> = {contents: "hello"};
+boxA.contents;
+
+let boxB: StringBox = {contents: "wolrd"};
+boxB.contents;
+
+interface Box<Type>{
+    contents: Type;
+}
+interface Apple{
+
+}
+type AppleBox = Box<Apple>;
+
+// array type
+
+function doSomething(value: Array<string>){
+
+}
+
+let myArray: string[] = ["hello", "world"];
+
+doSomething(myArray);
+doSomething(new Array("hello", "world"));
+
+interface Array1<Type>{
+    length: number;
+    pop(): Type | undefined;
+    push(...items: Type[]): number;
+}
+
+/// tuples
+// tuples now how many elements it contains
+
+function doS(pair: [string, number]){
+    const a = pair[0];
+
+    const b = pair[1];
+
+
+}
+
+doS(["hello",42]);
+
+// destruct tuples
+
+function doSm(stringHash: [string,number]){
+    const [inputString, hash] = stringHash;
+    console.log(inputString);
+    console.log(hash);
+}
+
+interface StringNumberPair{
+    length: 2;
+    0: string;
+    1: number;
+
+    slice(start?: number, end?: number):Array<string | number>
+}
+
+// readonly tuples
+function doSmt(pair: readonly[string, number]){
+    
+}
+
 
 
 
