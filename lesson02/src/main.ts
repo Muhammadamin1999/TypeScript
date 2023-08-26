@@ -1,25 +1,42 @@
-let myName: string = "Frank";
-let mySurname: string ;
-let myAge: number;
-let isBoolean: boolean;
-let album: any; // it means it can be any type
-let uniontype: string | number; // type of varaible can be string or number
+let myName: string ; // saying it is a string explicitly
+myName = "Dave";
+myName = "John"; // we can assign diffirent values
 
+let meaning: number;
+let isLoading: boolean;
+meaning = 42;
+isLoading = true;
 
-mySurname = "Muminov";
-isBoolean = false;
-myAge = 42;
-album = 14;
+let album: any;   // it allows any type of value
+album = 43;
+album = "hello";
 album = true;
-album = "string";
+album = undefined;
+album = {};
 
-// create function
-const sum = (a:number,b:number)=>{
+
+const sum = (a: number,b: number)=>{
+    return a + b;
+} // sum returns number
+
+const sum2 = (a: number, b: string)=>{
     return a + b;
 }
+ // sum returns string
 
-let postId: string | number;
-let RegExType: RegExp = /\w +/g; // there is also type for regular exp
+
+ // union type
+
+ let postId: string | number;
+ let isActive: number | boolean | string;
+
+
+ // regular expressions
+
+ let re: RegExp = /\w + /g;
+
+
+
 
 
 
