@@ -1,77 +1,86 @@
-// arrays
+let stringArr = ["one","hey"];
 
-let stringArr: string[] = ["one","hey","Ann"];
+let guitars = ['start','les paul',896];
 
-let guitar: (string | number)[] = ["star","less", 234];
+let mixedDate = ['date',1984, true];
 
-let mixedDate: (string | number| boolean)[]= ["evh",1984, true];
+stringArr.push("hey")// it can accept as srr is string type
 
-let test: any[];
-let bands: string[] = [];
-bands.push("Van Helen");
+guitars[0] = 1984;
+guitars.unshift('Jim');
 
-// Tuple aynan nima assign qilish tartibi bilan
-let myTuple: [string, number, boolean] = ["Dave", 12, true];
+guitars = stringArr  // it can be equal cause guitars is mixed type
 
-let mixed = ["John",1, false];
+let test = [];
+let bands: string[] = []; // declaring arr of string
+bands.push('Van halen');
 
-// objects
+// tuple
+let myTuple: [string, number, boolean] = ['Dave',42,true];
 
-let myObject: object;
-myObject = [];
-console.log(typeof(myObject))  // object
+let mixed = ['John', 1, false];
+// in which index what type
+mixed = myTuple;
+myTuple[1]=42;
+//myTuple = mixed it is not assignable
 
-myObject = {};
+let myObj: object
+myObj = []  // we can assign array to obj cause arr is obj type
+myObj = bands;
+
+myObj = {};
+
+
+// example obj
 
 const exampleObj = {
     prop1: 'Dave',
     prop2: true,
-};
+}
 
-exampleObj.prop2 = false;
+exampleObj.prop2 = false; // exampleObj.prop1 always string, prop2 always boolean
 
-// type Guitarist = {
-//     name: string,
-//     active?: boolean,          // ? it is for optional.
-//     albums: (string | number)[]
-// }
-interface Guitarist  {
+type Guitarist ={
     name: string,
-    active?: boolean,          // ? it is for optional.
+    active: boolean,
     albums: (string | number)[]
 }
 
-// interface works like a type difference 
-//interface for class, 
-
 let evh: Guitarist = {
-    name: 'Eddie',
+    name: 'Edide',
     active: false,
-    albums: [1984,234,'ou3'],
+    albums: [1,2,'4']
 }
 
-let JP: Guitarist = {
-    name: "Jimmy",
+let JP: Guitarist ={
+    name: 'Jimmy',
     active: true,
-    albums: ['I',"ii",'iv'],
-}
-evh = JP // it accepts cause they are same type
-
-// you can't add other property
-//evh.years
-
-const greatGuitarist = (guitarist: Guitarist)=>{
-    return `hello ${guitarist.name}`
+    albums:[1,'2',3]
 }
 
-// enums
-// unlike most TS features, enums are not a type-level addition to
-// JS but smth added to the language and runtime.
+evh = JP;  // it can be cause their types match
+
+// using Type in function
+const greetGuitarist = (guitarist: Guitarist)=>{
+    return `hello${guitarist.name}`;
+}
+
+interface test{
+    name: string,
+    active?: boolean,
+    albums: number[]
+}
+
+//enums
 enum Grade{
     U = 1,
     D,
     C,
     B,
-    A,
+    A
 }
-console.log(Grade.U) // 1
+
+console.log(Grade.U);  // it shows 1
+
+
+

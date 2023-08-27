@@ -34,6 +34,7 @@ const sum2 = (a: number, b: string)=>{
  // regular expressions
 
  let re: RegExp = /\w + /g;
+ 
 
 
 
