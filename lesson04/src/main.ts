@@ -1,101 +1,107 @@
-// type allias
-type StringOrNumber = string | number ;
-type stringOrNumberArray = (string | number)[];
+// type alliases
+
+type stringOrNumber = string | number;
+
+type stringOrNumberArray = (string | number)[]
+
 type Guitarist = {
     name?: string,
     active: boolean,
-    albums: (string | number)
-};
+    albums: stringOrNumberArray
+}
 
-type UserId = StringOrNumber;
+type UserId = stringOrNumber;
+
+//interface PostId = stringOrNumber //we cannot assign
 
 // literal types
-// this make only three names are available for username
 
 let myName: 'Dave';
+//myName = 'John'; //cannot assign cause myName's type is Dave
+
 let userName: 'Dave' | 'John' | 'Amy';
+
+//userName = 'Rachel'// it cannot be it can be only above three
 userName = 'Amy';
 
-// functions 
 
-const add = (a:number, b:number):number => {
-    return a+b;
+// functions
+
+const add = (a:number,b:number): number=>{
+    return a + b;
 }
-const logMsg = (message: any): void => {
+const logMsg = (message: any): void =>{
     console.log(message);
 }
-logMsg(add(4,5));
+
+// void is for function which returns nothing
+
 logMsg("hello");
 
-let subtract = function (c: number, d: number):number{
+logMsg(add(2,3));
+
+let subtract = function(c: number, d: number):number {
     return c-d;
 }
-// type mathFunc = (a: number,b: number)=>number
-interface mathFunc {
-    (a: number,b: number):number
-} 
-let multiply: mathFunc = function(c,d){
+
+//type mathFunction = (a: number, b: number)=> number
+interface  mathFunction  {(a: number, b: number): number}
+let multiply: mathFunction = function(c,d){
     return c*d;
 }
-logMsg(multiply(2,2));
 
-// optional parameters 
-const addAll = (a:number, b: number, c?: number):
-number =>{
-    if(typeof c !== 'undefined'){  // if protects ? giving an arror as an undefined
+logMsg(multiply(2,3));
+
+// optional params
+// when we use optional ? we should use type guard
+const addAll = (a:number, b: number, c?:number):number=>{
+    if(typeof c !="undefined")
+    {
         return a + b + c;
     }
-    return a+b
+    return a + b;
+    
 }
-const sumAll = (a:number=10, b: number, c: number = 2): // assigning default number
-number =>{
-     
+// default params
+const sumAll = (a:number, b: number, c:number = 2):number=>{
+    if(typeof c !="undefined")
+    {
         return a + b + c;
+    }
+    return a + b;
+    
 }
 
-logMsg(addAll(2,3,2)); //7
-logMsg(addAll(2,3)); // 5
-logMsg(sumAll(2,3));  // 7 because of default
-logMsg(sumAll(undefined,3)); // 15
-
-// Rest params
-const total = (a: number, ...nums: number[]) =>{
-    return  a + nums.reduce((prev,curr)=> prev + curr);
+// rest parameters
+const total = (a: number,...nums: number[]): number =>{
+    return a + nums.reduce((prev,curr)=> prev + curr);
 }
-logMsg(total(1,2,3,4));   //10
 
-// explicit throw an error type will be never
+logMsg(total(1,2,3,4));
 
-const createError = (errMsg: string):never=>{
+const createError = (errMsg: string)=>{
     throw new Error(errMsg);
 }
-
 const infinite = ()=>{
-    let i: number = 1
+    let i: number = 1;
     while(true){
         i++
-        if(i > 100) break;
+        if(i>100) break;
     }
+}
+
+// use of never type
+const numberOrString = (value: number | string): string=>{
+    if(typeof value === 'string') return 'string'
+    if(typeof value === "number") return "number"
+    return createError("this should never happen")
 }
 
 // custom type guard
+
 const isNumber = (value: any): boolean =>{
     return typeof value === 'number'
     ? true : false
 }
-
-// use of the never type
-
-const numberOrString = (value: number | string):
-string=>{
-    if(typeof value === 'string') return 'string'
-    if(isNumber(value)) return 'number'
-    return createError("this should never happen");
-}
-
-
-
-
-
 
 
