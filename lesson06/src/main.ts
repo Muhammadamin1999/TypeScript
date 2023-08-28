@@ -1,70 +1,65 @@
 class Coder {
-   secondLang!: string
-
-    constructor(
-          // visibility modifiers
-        public readonly name: string,
-        public music: string, 
-        private age: number,
-        protected lang: string = "TS"
-        )
-         {
-         this.name = name
-         this.music = music
-         this.age = age
-         this.lang = lang
+    // name: string
+    // music: string
+    // age: number
+    // lang: string
+    secondLang!: string; // adding assertion
+    // adding visibility modifier so that we do not need above
+    constructor(public name: string, public music: string,
+        private age: number,protected lang: string = 'TS'){ //giving default value
+        this.name = name;
+        this.music = music;
+        this.age = age;
+        this.lang = lang;
     }
-   
     public getAge(){
-        return `Hello, I'm ${this.age}`
+        return `hello iam ${this.age}`;
     }
 }
+const dave = new Coder('Dave','Rock',42);
 
-const Dave = new Coder("Dave", "Rock", 42)
-console.log(Dave.getAge())
-// console.log(Dave.age)
-// console.log(Dave.lang)
-class WebDev extends Coder {
-    constructor(public computer: string,
+class WebDev extends Coder{
+    constructor(
+        public computer: string,
         name: string,
         music: string,
-        age: number
+        age: number,
         ){
-    super(name, music, age)
-    this.computer = computer
-    }
-    public getLang(){
-        return `I write ${this.lang}`
-    }
+           super(name,music,age);
+           this.computer = computer;
+        }
+        public getLang(){
+            return `I write ${this.lang}`;
+        }
+
 }
 
-const Sara = new WebDev('Mac', 'Sara' ,'Lost',25)
-console.log(Sara.getLang())
-//////////////////////////////////////
+const Sara = new WebDev('Mac', 'Sara', 'Lofi',25);
+console.log(Sara.getLang());
 
 interface Musician{
-    name: string, 
+    name: string,
     instrument: string,
     play(action: string): string
 }
-
-class Guitarist implements Musician {
+class Guitarist implements Musician{
     name: string
     instrument: string
 
     constructor(name: string, instrument: string){
         this.name = name
-        this.instrument = instrument 
+        this.instrument = instrument
     }
+
     play(action: string){
         return `${this.name} ${action} the ${this.instrument}`
     }
 }
 
 const Page = new Guitarist('Jimmy', 'guitar')
-console.log(Page.play('strums'));
+console.log(Page.play('strum'));
 
-//////////////////////////////////////////////
+/////////////////////
 
 class Peeps {
     static count: number = 0
@@ -77,38 +72,35 @@ class Peeps {
         this.name = name
         this.id = ++Peeps.count
     }
-
 }
-const John = new Peeps('John')
-const Steve = new Peeps('Steve')
-const Amy = new Peeps('Amy')
 
-console.log(Peeps.count)   // 3
-console.log(Steve.id)      // 2
-console.log(John.id)       //1 
+const John = new Peeps('John');
+const Steve = new Peeps("Steve");
 
-//////////////////////////////////
+console.log(Peeps.count);
+console.log(Steve.id);
 
+//////////////////////////
 class Bands{
-    private dataState: string[]
-    constructor(){
-        this.dataState = []
+    private dataState: string[];
 
+    constructor(){
+        this.dataState = [];
+      
     }
     public get data(): string[]{
-        return this.dataState
+        return this.dataState;
     }
     public set data(value: string[]){
-        if(Array.isArray(value)&& value.every(
-            el => typeof el === 'string')){
-                this.dataState = value
-                return
-            }else throw new Error('Param is not set of string arrays')
+        if(Array.isArray(value) && value.every(el => typeof el === 'string')){
+            this.dataState = value;
+            
+        }else throw new Error("not available")
     }
 }
-const myBands = new Bands()
-myBands.data = ['Neil Young', 'Led Lop']
-console.log(myBands.data)
-myBands.data = [...myBands.data, 'zz top']
 
- 
+const MyBands = new Bands()
+MyBands.data = ['neil', 'ked'];
+console.log(MyBands.data);
+MyBands.data = [...MyBands.data, 'ZZ top'];
+console.log(MyBands.data);
