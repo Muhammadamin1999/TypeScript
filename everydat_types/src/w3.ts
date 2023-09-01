@@ -210,7 +210,20 @@ let j = "hello";
 // const person3 = new Persons()
 // person3.namely = "Joe"
 
-
-
+const  helloWorld = "hello world";
+ let Objs: number = {
+    w: 10,
+    r: 12
+}
+interface Window {
+    title: string;
+  }
+  
+  interface Window {
+    ts: TypeScriptAPI;
+  }
+  
+  const src = 'const a = "Hello World"';
+  window.ts.transpileModule(src, {});
 
 
