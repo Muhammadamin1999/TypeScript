@@ -211,19 +211,19 @@ let j = "hello";
 // person3.namely = "Joe"
 
 const  helloWorld = "hello world";
- let Objs: number = {
-    w: 10,
-    r: 12
-}
+ //let Objs: number = {
+//     w: 10,
+//     r: 12
+// }
 interface Window {
     title: string;
   }
   
-  interface Window {
-    ts: TypeScriptAPI;
-  }
+//   interface Window {
+//     ts: TypeScriptAPI;
+//   }
   
-  const src = 'const a = "Hello World"';
-  window.ts.transpileModule(src, {});
+//   const src = 'const a = "Hello World"';
+//   window.ts.transpileModule(src, {});
 
 
