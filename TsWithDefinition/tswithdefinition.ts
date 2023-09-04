@@ -66,3 +66,46 @@ const originalDictionary3 = {
 
 // const sum = Object.entries(originalDictionary).reduce(accumlator,[key,value])=> accumlator + printValue,0
 
+// generic function
+
+function identify<T>(arg: T): T{
+     return arg;
+}
+
+const result1: number = identify(42);
+const result2: string = identify("hello");
+
+// generic class
+
+class Box<T>{
+    private value: T;
+
+    constructor(initialValue: T){
+        this.value = initialValue;
+    }
+
+    getValue(): T{
+        return this.value;
+    }
+}
+
+const numberBox = new Box(42);
+const stringBox = new Box("Hello");
+
+// generic constraints
+
+interface Printable{
+    print(): void;
+}
+function printValues<T extends Printable>(value: T){
+    value.print()
+}
+
+class MyClass1 implements Printable{
+      print(){
+
+      }
+}
+
+
+
