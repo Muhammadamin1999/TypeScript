@@ -34,6 +34,35 @@ class MyClass implements Printable{
 const instance = new MyClass();
 printValue(instance);
 
+// map
 
+const originalDictionary = {
+    one: 1, 
+    two: 2,
+    three: 3
+}
+const transformedDictionary = Object.fromEntries(
+    Object.entries(originalDictionary).map(([key, value])=>[key, value * 2])
+)
 
+// filter method
+
+const originalDictionary2 = {
+    one: 1, 
+    two: 2,
+    three: 3,
+    four: 4
+}
+
+const filteredDictionary = Object.fromEntries(Object.entries(originalDictionary).filter(([key,value])=> value % 2 === 0))
+
+// reduce method
+
+const originalDictionary3 = {
+    one: 1, 
+    two: 2,
+    three: 3
+}
+
+// const sum = Object.entries(originalDictionary).reduce(accumlator,[key,value])=> accumlator + printValue,0
 
